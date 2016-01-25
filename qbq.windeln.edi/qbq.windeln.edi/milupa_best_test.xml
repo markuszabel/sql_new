@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Transfer xmlns="http://schema.mp-gruppe.de/NAVconnect/Fulfillment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FulfillAvisRequest>
+    <PurchaseOrder no="BEST-1041739">
+      <OrderDate>2014-08-25</OrderDate>
+      <Shipping>
+        <VendorNo>71009</VendorNo>
+        <ShippingDate>2014-08-29</ShippingDate>
+        <Address>
+          <Name1>Milupa</Name1>
+          <Name2></Name2>
+          <Street>Milupa GmbH Sales Support</Street>
+          <Address2>Bahnstraße 14-30</Address2>
+          <PostCode>61381</PostCode>
+          <City>Friedrichsdorf</City>
+          <CountryCode>DE</CountryCode>
+          <Email>Thomas.Fritsch@Danone.com</Email>
+        </Address>
+      </Shipping>
+      <Comments/>
+      <Lines>
+        <Line no="10000">
+          <ItemNo>400305303203</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>3032031</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Prematil Frueh</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="4ER">2.0</QuantityOrdered>
+          <QuantityShipped unit="4ER">0.0</QuantityShipped>
+          <QuantityPerUnit>4.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="20000">
+          <ItemNo>4008976022121</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6022121</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Mil. HA Pre trf.  2 St</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">54.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="30000">
+          <ItemNo>4008976022527</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>602252</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung HA</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="3ER">5.0</QuantityOrdered>
+          <QuantityShipped unit="3ER">0.0</QuantityShipped>
+          <QuantityPerUnit>3.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="40000">
+          <ItemNo>4008976032335</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6032335</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Milupa Milumil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="12ER">5.0</QuantityOrdered>
+          <QuantityShipped unit="12ER">0.0</QuantityShipped>
+          <QuantityPerUnit>12.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="50000">
+          <ItemNo>4008976071693</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6071693</VendorItemNo>
+          <ItemCategory>202</ItemCategory>
+          <ItemDescription>Aptamil Milchbreie</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">252.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="60000">
+          <ItemNo>4008976120070</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>612007</VendorItemNo>
+          <ItemCategory>205</ItemCategory>
+          <ItemDescription>Milupa Muesli</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="4ER">1.0</QuantityOrdered>
+          <QuantityShipped unit="4ER">0.0</QuantityShipped>
+          <QuantityPerUnit>4.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="70000">
+          <ItemNo>4008976120087</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>612008</VendorItemNo>
+          <ItemCategory>205</ItemCategory>
+          <ItemDescription>Milupa Muesli</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="4ER">1.0</QuantityOrdered>
+          <QuantityShipped unit="4ER">0.0</QuantityShipped>
+          <QuantityPerUnit>4.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="80000">
+          <ItemNo>4008976120094</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>612009</VendorItemNo>
+          <ItemCategory>205</ItemCategory>
+          <ItemDescription>Milupa Muesli</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="4ER">1.0</QuantityOrdered>
+          <QuantityShipped unit="4ER">0.0</QuantityShipped>
+          <QuantityPerUnit>4.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="90000">
+          <ItemNo>4008976120100</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>612010</VendorItemNo>
+          <ItemCategory>205</ItemCategory>
+          <ItemDescription>Milupa Muesli</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="4ER">1.0</QuantityOrdered>
+          <QuantityShipped unit="4ER">0.0</QuantityShipped>
+          <QuantityPerUnit>4.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="100000">
+          <ItemNo>4008976214984</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6021766</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">33.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="110000">
+          <ItemNo>4008976219651</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6022312</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">977.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="120000">
+          <ItemNo>4008976219705</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6219705</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">1849.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="130000">
+          <ItemNo>4008976219729</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6219729</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">1204.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+        <Line no="140000">
+          <ItemNo>4008976219743</ItemNo>
+          <ItemVariantCode></ItemVariantCode>
+          <VendorItemNo>6219743</VendorItemNo>
+          <ItemCategory>201</ItemCategory>
+          <ItemDescription>Aptamil Milchnahrung</ItemDescription>
+          <ItemCondition></ItemCondition>
+          <VatPercent>7.0</VatPercent>
+          <QuantityOrdered unit="1ER">5.0</QuantityOrdered>
+          <QuantityShipped unit="1ER">0.0</QuantityShipped>
+          <QuantityPerUnit>1.0</QuantityPerUnit>
+          <ForOrder>0</ForOrder>
+          <Comments/>
+        </Line>
+      </Lines>
+    </PurchaseOrder>
+  </FulfillAvisRequest>
+</Transfer>

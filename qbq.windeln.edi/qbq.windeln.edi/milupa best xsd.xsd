@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schema.mp-gruppe.de/NAVconnect/Fulfillment" elementFormDefault="qualified" xmlns="http://schema.mp-gruppe.de/NAVconnect/Fulfillment" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Transfer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FulfillAvisRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PurchaseOrder">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OrderDate" type="xs:date"/>
+										<xs:element name="Shipping">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="VendorNo" type="xs:int"/>
+													<xs:element name="ShippingDate" type="xs:date"/>
+													<xs:element name="Address">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Name1" type="xs:string"/>
+																<xs:element name="Name2">
+																	<xs:complexType/>
+																</xs:element>
+																<xs:element name="Street" type="xs:string"/>
+																<xs:element name="Address2" type="xs:string"/>
+																<xs:element name="PostCode" type="xs:int"/>
+																<xs:element name="City" type="xs:string"/>
+																<xs:element name="CountryCode" type="xs:string"/>
+																<xs:element name="Email" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Comments">
+											<xs:complexType/>
+										</xs:element>
+										<xs:element name="Lines">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Line" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ItemNo" type="xs:long"/>
+																<xs:element name="ItemVariantCode">
+																	<xs:complexType/>
+																</xs:element>
+																<xs:element name="VendorItemNo" type="xs:int"/>
+																<xs:element name="ItemCategory" type="xs:short"/>
+																<xs:element name="ItemDescription" type="xs:string"/>
+																<xs:element name="ItemCondition">
+																	<xs:complexType/>
+																</xs:element>
+																<xs:element name="VatPercent" type="xs:decimal"/>
+																<xs:element name="QuantityOrdered">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:decimal">
+																				<xs:attribute name="unit" use="required" type="xs:string"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="QuantityShipped">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:decimal">
+																				<xs:attribute name="unit" use="required" type="xs:string"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="QuantityPerUnit" type="xs:decimal"/>
+																<xs:element name="ForOrder" type="xs:byte"/>
+																<xs:element name="Comments">
+																	<xs:complexType/>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="no" use="required" type="xs:int"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="no" use="required" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

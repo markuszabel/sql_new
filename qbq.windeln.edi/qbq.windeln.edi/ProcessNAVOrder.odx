@@ -1,0 +1,195 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="c04269a7-59e1-46f6-9a45-6d7ac0bad19a" LowerBound="1.1" HigherBound="42.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="qbq.windeln.edi" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="65fff124-055e-4fb0-b87e-0e66cef88deb" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="NAVOrderRPT" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="917be23c-017a-4378-bd8f-02749774e176" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Receive" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="00382f23-b06d-4cc0-acc1-f90b7c3835ef" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.35">
+                    <om:Property Name="Ref" Value="qbq.windeln.edi.NAVconnect_Fulfillment" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="d60cd846-ad02-42c0-83a7-486c8c74330c" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="EDIOrderSPT" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="0512cd19-f29d-4e83-bb64-e3c51f42cc77" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Send" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="a7b93753-6f67-4d5e-9f12-bfcb7831356c" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.30">
+                    <om:Property Name="Ref" Value="qbq.windeln.edi.EFACT_D96A_ORDERS" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="b5baa6a9-c36a-4448-8224-900a27c36f36" ParentLink="Module_ServiceDeclaration" LowerBound="18.1" HigherBound="41.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ProcessNAVOrder" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="ServiceBody" OID="c0cb6af3-2297-4051-9478-480e2ba3ee3c" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="c2f8375c-a2c4-41b0-a728-e787d3f6778d" ParentLink="ServiceBody_Statement" LowerBound="29.1" HigherBound="31.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="NAVOrderRP" />
+                    <om:Property Name="MessageName" Value="NAVOrder" />
+                    <om:Property Name="OperationName" Value="Receive" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Rcv NAVOrder" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="16195bc5-c2a6-46c2-8217-af8374cbf499" ParentLink="ServiceBody_Statement" LowerBound="31.1" HigherBound="37.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Cs EDIOrder" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="67bb2a11-6567-4020-8b9d-470d58536ae6" ParentLink="ComplexStatement_Statement" LowerBound="34.1" HigherBound="36.1">
+                        <om:Property Name="ClassName" Value="qbq.windeln.edi.NAVPurchaseOrder_To_EDIOrdersD96A" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="NAVPurchaseOrder_To_EDIOrdersD96A" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="2def9adf-93b1-40a4-a48a-3482f907138d" ParentLink="Transform_InputMessagePartRef" LowerBound="35.91" HigherBound="35.99">
+                            <om:Property Name="MessageRef" Value="NAVOrder" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="4866762c-2ebe-4cd1-9084-0a12ef359692" ParentLink="Transform_OutputMessagePartRef" LowerBound="35.28" HigherBound="35.36">
+                            <om:Property Name="MessageRef" Value="EDIOrder" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="c0593c56-0e8e-41e0-9dce-f3505a632504" ParentLink="Construct_MessageRef" LowerBound="32.23" HigherBound="32.31">
+                        <om:Property Name="Ref" Value="EDIOrder" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="59e8abaa-1a2c-4049-8be0-57ceda4ca066" ParentLink="ServiceBody_Statement" LowerBound="37.1" HigherBound="39.1">
+                    <om:Property Name="PortName" Value="EDIOrderSP" />
+                    <om:Property Name="MessageName" Value="EDIOrder" />
+                    <om:Property Name="OperationName" Value="Send" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Snd EDIOrder" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="a522235d-0361-4d09-93ca-d28c60707c6f" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="21.1" HigherBound="23.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="6" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="qbq.windeln.edi.NAVOrderRPT" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="NAVOrderRP" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="45c76a3d-bf85-43ee-8534-0bf45b3c2c21" ParentLink="PortDeclaration_CLRAttribute" LowerBound="21.1" HigherBound="22.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="4d03d166-a14d-4a1e-a303-97e8783809b5" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="23.1" HigherBound="25.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="15" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="qbq.windeln.edi.EDIOrderSPT" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EDIOrderSP" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="30b85cbd-c23c-46e7-8f08-60523b7502c0" ParentLink="PortDeclaration_CLRAttribute" LowerBound="23.1" HigherBound="24.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="a0768471-3f18-443b-b0d0-8e64f5b2fa02" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="25.1" HigherBound="26.1">
+                <om:Property Name="Type" Value="qbq.windeln.edi.NAVconnect_Fulfillment" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="NAVOrder" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="b4b2e6a9-68dc-4219-9e59-cfc3e1d41f65" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="26.1" HigherBound="27.1">
+                <om:Property Name="Type" Value="qbq.windeln.edi.EFACT_D96A_ORDERS" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EDIOrder" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module qbq.windeln.edi
+{
+    internal porttype NAVOrderRPT
+    {
+        oneway Receive
+        {
+            NAVconnect_Fulfillment
+        };
+    };
+    internal porttype EDIOrderSPT
+    {
+        oneway Send
+        {
+            EFACT_D96A_ORDERS
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service ProcessNAVOrder
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements NAVOrderRPT NAVOrderRP;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses EDIOrderSPT EDIOrderSP;
+        message NAVconnect_Fulfillment NAVOrder;
+        message EFACT_D96A_ORDERS EDIOrder;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c2f8375c-a2c4-41b0-a728-e787d3f6778d")]
+            activate receive (NAVOrderRP.Receive, NAVOrder);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("16195bc5-c2a6-46c2-8217-af8374cbf499")]
+            construct EDIOrder
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("67bb2a11-6567-4020-8b9d-470d58536ae6")]
+                transform (EDIOrder) = qbq.windeln.edi.NAVPurchaseOrder_To_EDIOrdersD96A (NAVOrder);
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("59e8abaa-1a2c-4049-8be0-57ceda4ca066")]
+            send (EDIOrderSP.Send, EDIOrder);
+        }
+    }
+}
+

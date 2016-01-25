@@ -1,0 +1,4 @@
+C:\Users\jfuchs\Documents\Visual Studio 2012\Projects\qbq.windeln.edi\qbq.windeln.edi\bin\Debug\qbq.windeln.edi.dll
+C:\Users\jfuchs\Documents\Visual Studio 2012\Projects\qbq.windeln.edi\qbq.windeln.edi\bin\Debug\qbq.windeln.edi.pdb
+C:\Users\jfuchs\Documents\Visual Studio 2012\Projects\qbq.windeln.edi\qbq.windeln.edi\obj\Debug\qbq.windeln.edi.dll
+C:\Users\jfuchs\Documents\Visual Studio 2012\Projects\qbq.windeln.edi\qbq.windeln.edi\obj\Debug\qbq.windeln.edi.pdb

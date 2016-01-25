@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources/>
+	<component name="defaultmap1" blackbox="0" uid="1" editable="1">
+		<properties SelectedLanguage="java"/>
+		<structure>
+			<children>
+				<component name="milupa best xsd" library="xml" uid="3" kind="14">
+					<properties/>
+					<view rbx="187" rby="200"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace uid="http://schema.mp-gruppe.de/NAVconnect/Fulfillment"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Transfer" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="milupa best xsd.xsd" inputinstance="milupa_best_test.xml" outputinstance="milupa_best_test.xml" instanceroot="{http://schema.mp-gruppe.de/NAVconnect/Fulfillment}Transfer"/>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<vertices/>
+			</graph>
+		</structure>
+	</component>
+</mapping>

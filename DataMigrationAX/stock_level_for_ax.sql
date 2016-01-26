@@ -4,12 +4,12 @@ DECLARE @j_name_id varchar(3) = 'IMP';
 DECLARE @site varchar(3) = 'BER';
 DECLARE @warehouse varchar(8) = 'FIEGE_GB';
 DECLARE @date date = '2015-12-31';
-
+DECLARE @location varchar(9) = 'BER_FIEGE';
 
 with stock_ust as
 (Select ROW_NUMBER() OVER (ORDER BY [Item No_]) as Ranking ,[Item No_], sum(Quantity) as Menge
 from urban_NAV600.dbo.[Urban-Brand GmbH$Item Ledger Entry] with (NOLOCK)
-Where [Location Code] = 'BER_FIEGE'
+Where [Location Code] = @location --and [Item No_] = '0027084657968'
 Group by [Item No_]
 having sum(Quantity) <> '0')
 
@@ -25,15 +25,9 @@ it.Description "Description",
 @warehouse "IventLocationId",
 @site "InventSiteId"
 
-    /*<Qty>4</Qty>
-    <CostPrice>9.49</CostPrice>
-    <Description>Test stock update item1</Description>
-    <InventLocationId>FIEGE_GB</InventLocationId>
-    <InventSiteId>BER</InventSiteId>*/
-
 From stock_ust
 Left Join urban_NAV600.dbo.[Urban-Brand GmbH$Stockkeeping Unit] as st with (Nolock)
-on st.[Item No_] = stock_ust.[Item No_] and st.[Location Code] = 'USTER'
+on st.[Item No_] = stock_ust.[Item No_] and st.[Location Code] = @location
 left join urban_NAV600.dbo.[Urban-Brand GmbH$Item] as it with (Nolock)
 on it.No_ = stock_ust.[Item No_]
 /*left join urban_NAV600.dbo.[Urban-Brand GmbH$Default Dimension] as dd with (Nolock)

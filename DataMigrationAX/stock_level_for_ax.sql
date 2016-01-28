@@ -1,10 +1,10 @@
 DECLARE @line int = '1'; 
-DECLARE @j_id varchar(11) = 'Stock_BER_FIEGE';
+DECLARE @j_id varchar(11) = 'Stock_USTER';
 DECLARE @j_name_id varchar(3) = 'IMP';
-DECLARE @site varchar(3) = 'BER';
-DECLARE @warehouse varchar(8) = 'FIEGE_GB';
-DECLARE @date date = '2015-12-31';
-DECLARE @location varchar(9) = 'BER_FIEGE';
+DECLARE @site varchar(3) = 'UST';
+DECLARE @warehouse varchar(8) = 'USTER';
+DECLARE @date date = '2016-01-01';
+DECLARE @location varchar(9) = 'USTER';
 
 with stock_ust as
 (Select ROW_NUMBER() OVER (ORDER BY [Item No_]) as Ranking ,[Item No_], sum(Quantity) as Menge

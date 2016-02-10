@@ -1,0 +1,14 @@
+static void updateCreateSalesOrdersWithErrors(Args _args)
+{
+    
+WINSalesTableStaging aaa;
+
+update_recordSet aaa 
+setting    
+Status = WINCreatedFinishedError::Created
+where aaa.ShopCode=='WINDELN_CH'
+&& aaa.PaymMethod!='prepayhyp'
+&& aaa.Status==WINCreatedFinishedError::Error;
+
+    
+}

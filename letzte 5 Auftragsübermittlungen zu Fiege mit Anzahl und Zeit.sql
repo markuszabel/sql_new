@@ -6,7 +6,7 @@ Where ffs.[File No_] in
 (
 Select TOP 50 [File No_]
 From [urban_NAV600].[dbo].[Urban-Brand GmbH$eBayFFProtocol]
-Where left([File No_],3) in (/*'A1',*/'A25'/*,'A6'*/)
+Where left([File No_],3) in (/*'A1',*/'A60'/*,'A6'*/)
 Order by [Timestamp Upload_Download] desc)
 
 Group by ffs.[File No_], pro.[Timestamp Upload_Download]

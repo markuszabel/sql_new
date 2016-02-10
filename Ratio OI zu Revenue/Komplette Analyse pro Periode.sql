@@ -24,5 +24,5 @@ Left Join inSales on inSales.Auftrag = ch.ExternalDocumentNo
 Left Join inLog on inLog.Auftrag = ch.ExternalDocumentNo
 Left Join inSent on inSent.Auftrag = ch.ExternalDocumentNo
 left Join cancelled on cancelled.[External Document No_] = ch.ExternalDocumentNo
-Where  ch.OrderDate >= '2015-03-01' 
+Where  ch.OrderDate >= '2015-10-01' 
 Group by ch.[Shop Code]

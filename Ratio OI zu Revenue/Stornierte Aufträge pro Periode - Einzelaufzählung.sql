@@ -2,10 +2,6 @@ With inSystem as
 (	Select [External Document No_]from [urban_NAV600].[dbo].[Urban-Brand GmbH$Sales Header] with (nolock)
 	Union
 	Select [External Document No_] from [urban_NAV600].[dbo].[Urban-Brand GmbH$Sales Invoice Header] with (nolock)
-),
-with 
-(
-
 )
 
 
@@ -17,7 +13,7 @@ Left Join inSystem
 on esh.[External Document No_] = inSystem.[External Document No_]
 Left Join [urban_NAV600].[dbo].[Urban-Brand GmbH$CreateDocumentHeader] as ch
 on ch.ExternalDocumentNo = esh.[External Document No_]
-Where inSystem.[External Document No_] IS NULL AND esh.[Order Date] between '2014-01-01' 
+Where inSystem.[External Document No_] IS NULL AND esh.[Order Date] between '2015-10-01' 
 and GETDATE() and esh.[Shop Code] = 'WINDELN_DE'
 --and ch.CouponInformation_CouponCode = 'LETSFAMILY'
 --and esh.FraudInfo = ''

@@ -31,9 +31,9 @@ cast(cle.[Remaining Pmt_ Disc_ Possible] as float) as DiscAmount,cast(cle.[Pmt_ 
 @pay as Payment,cle.[Payment Method Code], @discCode as Disccode,
 
 
-/*cle.[Customer Posting Group] as CustPostGroup,
+cle.[Customer Posting Group] as CustPostGroup,
 cle.[Global Dimension 1 Code] as KostStell, cle.[Global Dimension 2 Code] as KostTraeg, 
-cle.[Last Issued Reminder Level] as Mahnstufe, */
+cle.[Last Issued Reminder Level] as Mahnstufe, 
 cast(cle.[Document Date] as Date) as BelegDat
 from urban_NAV600.dbo.[Urban-Brand GmbH$Cust_ Ledger Entry] as cle with (NOLOCK)
 Left Join dcu

@@ -14,4 +14,4 @@ on dd.[Dimension Value Code] = dv.[Code]
 Where dd.[Dimension Code] = 'MARKE' and dv.Code is NULL
 order by dd.[Dimension Value Code]
 
-Update urban_NAV600.dbo.[Urban-Brand GmbH$Default Dimension] set [Dimension Value Code] = 'NESTLE' Where [Dimension Value Code] = 'NESTLÉ' and [Dimension Code] = 'MARKE'  
+--Update urban_NAV600.dbo.[Urban-Brand GmbH$Default Dimension] set [Dimension Value Code] = 'BUBBLE KID BERLIN' Where [Dimension Value Code] = 'BUBBLE. KID BERLIN' and [Dimension Code] = 'MARKE'  

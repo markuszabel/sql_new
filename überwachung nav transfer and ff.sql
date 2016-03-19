@@ -23,3 +23,12 @@
   Where [Processing Status] = 0 and [Document Type] = 1 And [Status Fulfillment] = 0
   Group by [Purchaser Code], cast([Posting Date] as Date)
   
+    SELECT [Setup Code], count([File No_])	as ErrorinFFProtocoll
+  FROM [urban_NAV600].[dbo].[Urban-Brand GmbH$eBayFFProtocol] with (NOLOCK)
+  Where Status = '4' and [Is Cleared] = '0'
+  Group by [Setup Code]
+
+      SELECT [Setup Code], count([File No_]) as ErrorinFFXML	
+  FROM [urban_NAV600].[dbo].[Urban-Brand GmbH$eBayFFXML] with (NOLOCK)
+  Where Status = '4' and [Is Cleared] = '0'
+  Group by [Setup Code]

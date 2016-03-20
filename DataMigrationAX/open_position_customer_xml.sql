@@ -32,8 +32,8 @@ ROW_NUMBER() OVER (ORDER BY cle.[Entry No_])  "LineNum"
 ,@journalName "JournalName", dcu.CurrencyCode "CurrencyCode",@deb "AccountType",
 left(cle.[Customer No_],1)+'0'+RIGHT(cle.[Customer No_],7) "LedgerDimension", 
 cle.[Global Dimension 2 Code] + @sep + left(cle.[Global Dimension 1 Code],3)+ @sep  "DefaultDimension",
-cast(dcu.Wert as decimal(18,2)) "AmountCurDebit",@AmountCurCredit "AmountCurCredit", @OffsetAccountType "OffsetAccountType"
-,@OffsetLedgerDimension+@sep+cle.[Global Dimension 2 Code] "OffsetLedgerDimension",
+cast(dcu.Wert as decimal(18,2)) "AmountCurDebit",@AmountCurCredit "AmountCurCredit", @OffsetAccountType "OffsetAccountType",
+@OffsetLedgerDimension/*+@sep+cle.[Global Dimension 2 Code]*/ "OffsetLedgerDimension",
 cast(cle.[Posting Date] as Date) "TransDate",
 cast(cle.[Document Type] as varchar) + @sep + cast(cle.[Document No_] as varchar)+@sep+ cast(cle.[Entry No_] as varchar)+@sep+cle.[External Document No_]+@sep+cle.[Payment Reference] "Txt", 
 --cast(cle.[Remaining Pmt_ Disc_ Possible] as float) "CashDiscAmount",cast(cle.[Pmt_ Discount Date] as Date) "DateCashDisc",
@@ -48,5 +48,5 @@ cast(cle.[Document Date] as Date) "DocumentDate"
 from urban_NAV600.dbo.[Urban-Brand GmbH$Cust_ Ledger Entry] as cle with (NOLOCK)
 Left Join dcu
 on dcu.EntryNo = cle.[Entry No_]
-where cle.[Open] = '1' and cle.[Customer No_] = 'D1000276' --and 'D1010276'
+where cle.[Open] = '1' and cle.[Customer No_] between 'D1400001' and 'D1500000'
 FOR XML PATH ('LedgerJournalEntity'), root('Document');

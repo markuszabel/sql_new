@@ -5,7 +5,7 @@ ven.Name
 from urban_NAV600.dbo.[Urban-Brand GmbH$Value Entry] as ve
 Left Join urban_NAV600.dbo.[Urban-Brand GmbH$Vendor] as ven
 on ve.[Source No_] = ven.No_ 
-where  ve.[Location Code] = 'WINDELBAR' and ve.[Posting Date] <= '2015-12-31'
+where  ve.[Location Code] = 'WDB_FIEGE' and ve.[Posting Date] <= '2016-03-31'
 --and
 --ve.[Document Type] in (6,5)
 Group by

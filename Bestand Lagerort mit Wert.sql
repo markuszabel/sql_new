@@ -19,5 +19,5 @@ group by [Location Code])
 Select stock.*, ve.ile, ve.[1140], ve.WeRe, ve.Gesamtwert
 from stock
 left join ve on ve.[Location Code] = stock.[Location Code]
-Where stock.[Location Code] in ('TRANS_09','WDB_FIEGE','WB_RETOURE','WDB_AB')
+--Where stock.[Location Code] in ('TRANS_09','WDB_FIEGE','WB_RETOURE','WDB_AB')
 Order by stock.Menge desc

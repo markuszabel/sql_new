@@ -1,13 +1,13 @@
 DECLARE @line int = '1'; 
-DECLARE @j_id varchar(11) = 'Stock_ARESE';
+DECLARE @j_id varchar(11) = 'Stock_WDB_V2';
 DECLARE @j_name_id varchar(3) = 'IMP';
 /** Hier das Lager aus AX eintragen (Site und Warehouse) **/
-DECLARE @site varchar(3) = 'MIL';
-DECLARE @warehouse varchar(8) = 'FIEGE_AR';
+DECLARE @site varchar(3) = 'BER';
+DECLARE @warehouse varchar(8) = 'FIEGE_GB';
 /** Datum nur für Testzwecke **/
 DECLARE @date date = '2016-01-01';
 /** Hier das Lager für Navision eintragen, aus dem die Daten geholt werden **/
-DECLARE @location_nav varchar(9) = 'MIL_FIEGE';
+DECLARE @location_nav varchar(9) = 'BER_FIEGE';
 DECLARE @offset_ledger varchar(6) = '930000';
 DECLARE @sep varchar(1) = '-';
 
@@ -24,7 +24,7 @@ and [Remaining Quantity] > '0'),
 ve as
 (Select [Item No_],sum([Cost Amount (Actual)]) as Buchwert, sum([Item Ledger Entry Quantity]) as Menge,(sum([Cost Amount (Actual)])/ sum([Item Ledger Entry Quantity])) as UnitCost
 from urban_NAV600.dbo.[Urban-Brand GmbH$Value Entry] with (NOLOCK)
-Where [Location Code] = 'MIL_FIEGE'--@location_nav
+Where [Location Code] = @location_nav
 --and [Item No_] = '4062300001510'
 Group by [Item No_]
 Having sum([Item Ledger Entry Quantity]) <> 0)

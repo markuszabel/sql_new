@@ -24,30 +24,43 @@ Group by [Cust_ Ledger Entry No_],[Initial Entry Global Dim_ 1], [Initial Entry 
 
 
 Select 
+/*** Name des Journals - Muss jedes Mal ein anderer sein****/
 @journalNum "JournalNum",
+/*** Eine fortlaufender Identifier - Sollte auch jedes mal ein anderer sein ***/
 cast((@voucher + cast(ROW_NUMBER() OVER (ORDER BY cle.[Entry No_]) as varchar)) as varchar) "Voucher",
-
-ROW_NUMBER() OVER (ORDER BY cle.[Entry No_])  "LineNum"
-
-,@journalName "JournalName", dcu.CurrencyCode "CurrencyCode",@deb "AccountType",
+/*** Zeilennummer - wird einfach nur hochgezählt ***/
+ROW_NUMBER() OVER (ORDER BY cle.[Entry No_])  "LineNum",
+/*** Wird auf General für Allgemeine Erfassung gestellt ***/
+@journalName "JournalName", 
+/*** Währung des Posten ***/
+dcu.CurrencyCode "CurrencyCode",
+/*** Wird auf "Customer" gestellt, da es hier um Kundenpositionen geht ***/
+@deb "AccountType",
+/*** Debitorennumme - schon mit der 0 zwischen D und der 1 ***/
 left(cle.[Customer No_],1)+'0'+RIGHT(cle.[Customer No_],7) "LedgerDimension", 
+/*** Dimensionsstring - mit Umsetzung in IT_NAK ***/
 case 
-	when cle.[Global Dimension 2 Code] = 'IT_WDB' then 'IT_WDB'
+	when cle.[Global Dimension 2 Code] = 'IT_WDB' then 'IT_NAK'
 	else cle.[Global Dimension 2 Code]
 end
-
 + @sep+ @sep + left(cle.[Global Dimension 1 Code],3)+ @sep  "DefaultDimension",
+/*** Debit-Amount beim Kunden ***/
 case 
 	when (dcu.Wert<0) then '0'
 	else cast(dcu.Wert as decimal(18,2))
 End	 "AmountCurDebit",
+/*** Credit-Amount beim Kunden ***/
 case 
 	when (dcu.Wert<0) then cast(dcu.Wert*-1 as decimal(18,2))
 	else '0'
 End	 "AmountCurCredit", 
+/*** Typ des Gegenkontos - hier immer ein Ledger ***/
 @OffsetAccountType "OffsetAccountType",
+/*** Dimensionen des Gegenkontos - aktuell ohne Dimensionen ***/
 @OffsetLedgerDimension/*+@sep+cle.[Global Dimension 2 Code]*/ "OffsetLedgerDimension",
+/*** Buchungsdatum des Posten ***/
 cast(cle.[Posting Date] as Date) "TransDate",
+/*** Text der Buchung - wird aus verschiedenen Sachen zusammengesetzt ***/
 cast(cle.[Document Type] as varchar) + @sep + cast(cle.[Document No_] as varchar)+@sep+ cast(cle.[Entry No_] as varchar)+@sep+cle.[External Document No_]+@sep+cle.[Payment Reference] "Txt", 
 --cast(cle.[Remaining Pmt_ Disc_ Possible] as float) "CashDiscAmount",cast(cle.[Pmt_ Discount Date] as Date) "DateCashDisc",
 cle.[Document No_] "DocumentNum",cast(cle.[Due Date] as Date) "Due",cle.[Document No_]  "Invoice",

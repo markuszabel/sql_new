@@ -1,5 +1,5 @@
 DECLARE @deb varchar(8) = 'Customer'; 
-DECLARE @journalNum varchar(15) = 'OTC_MZ_2'; 
+DECLARE @journalNum varchar(20) = 'OTC_PROD_10'; 
 DECLARE @voucher varchar(4) = 'OTC-'; 
 DECLARE @lineNum varchar(7) = 'Cus'; 
 DECLARE @journalName varchar(15) = 'General'; 
@@ -61,18 +61,38 @@ End	 "AmountCurCredit",
 /*** Buchungsdatum des Posten ***/
 cast(cle.[Posting Date] as Date) "TransDate",
 /*** Text der Buchung - wird aus verschiedenen Sachen zusammengesetzt ***/
-cast(cle.[Document Type] as varchar) + @sep + cast(cle.[Document No_] as varchar)+@sep+ cast(cle.[Entry No_] as varchar)+@sep+cle.[External Document No_]+@sep+cle.[Payment Reference] "Txt", 
+case cle.[Document Type] 
+	when '0' then 'na'
+	when '1' then 'Zahlung'
+	when '2' then 'Rechnung'
+	when '3' then 'Gutschrift'
+	when '4' then 'Zinsrechnung'
+	when '5' then 'Mahnung'
+	when '6' then 'Erstattung'
+	else 'na' 
+end
+ + @sep + cast(cle.[Document No_] as varchar)+@sep+ cast(cle.[Entry No_] as varchar)+@sep+cle.[External Document No_]+@sep+cle.[Payment Reference] "Txt", 
 --cast(cle.[Remaining Pmt_ Disc_ Possible] as float) "CashDiscAmount",cast(cle.[Pmt_ Discount Date] as Date) "DateCashDisc",
-cle.[Document No_] "DocumentNum",cast(cle.[Due Date] as Date) "Due",cle.[Document No_]  "Invoice",
-@pay "Payment",cle.[Payment Method Code] "PaymMode",-- @discCode as Disccode,
-
-
-/*cle.[Customer Posting Group] as CustPostGroup,
-cle.[Global Dimension 1 Code] as KostStell, cle.[Global Dimension 2 Code] as KostTraeg, 
-cle.[Last Issued Reminder Level] as Mahnstufe, */
+cle.[Document No_] "DocumentNum",
+cast(cle.[Due Date] as Date) "Due",
+case [Document Type]
+	when 2 then cle.[Document No_] 
+	else ''
+end
+  "Invoice",
+@pay "Payment",
+za.[AX Payment Method] "PaymMode",-- @discCode as Disccode,
+case cle.[Document Type] 
+	when '1' then cle.[Payment Reference]
+	else '' 
+end
+ "PaymReference",
+/*cle.[Last Issued Reminder Level] as Mahnstufe, */
 cast(cle.[Document Date] as Date) "DocumentDate"
 from urban_NAV600.dbo.[Urban-Brand GmbH$Cust_ Ledger Entry] as cle with (NOLOCK)
 Left Join dcu
 on dcu.EntryNo = cle.[Entry No_]
-where cle.[Open] = '1' and cle.[Customer No_] >= 'D2480001' --and 'D2480000'
+Left join urban_NAV600.dbo.[Urban-Brand GmbH$Zahlungsmethode] as za with (NOLOCK)
+on cle.[Payment Method Code] = za.[NAV Payment Code]
+where cle.[Open] = '1' and cle.[Customer No_]  between 'D2000001' and 'D2700000'
 FOR XML PATH ('LedgerJournalEntity'), root('Document');

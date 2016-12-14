@@ -1,13 +1,13 @@
 DECLARE @line int = '1'; 
-DECLARE @j_id varchar(11) = 'Stock_WDB_V2';
+DECLARE @j_id varchar(20) = 'Stock_TEST_100416';
 DECLARE @j_name_id varchar(3) = 'IMP';
 /** Hier das Lager aus AX eintragen (Site und Warehouse) **/
-DECLARE @site varchar(3) = 'BER';
-DECLARE @warehouse varchar(8) = 'FIEGE_GB';
+DECLARE @site varchar(3) = 'ABE';
+DECLARE @warehouse varchar(8) = 'WDB_AB';
 /** Datum nur für Testzwecke **/
 DECLARE @date date = '2016-01-01';
 /** Hier das Lager für Navision eintragen, aus dem die Daten geholt werden **/
-DECLARE @location_nav varchar(9) = 'BER_FIEGE';
+DECLARE @location_nav varchar(9) = 'WDB_AB';
 DECLARE @offset_ledger varchar(6) = '930000';
 DECLARE @sep varchar(1) = '-';
 
@@ -56,4 +56,4 @@ on dd.No_ = it.No_ and dd.[Dimension Code] = 'MARKE'
 Left Join urban_NAV600.dbo.[Urban-Brand GmbH$eBayFFItem] as ei with (Nolock)
 on ei.[Item No_] = it.No_ */
 order by stock_ust.Ranking
-FOR XML PATH ('InventJournalEntity')
+FOR XML PATH ('InventJournalEntity'), root('Document');

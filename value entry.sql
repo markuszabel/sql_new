@@ -8,7 +8,7 @@ sum([Cost Amount (Expected)]) as WE_RE,
 sum([Cost Amount (Actual)]) + sum([Cost Amount (Expected)]) as Gesamt
 FROM
 Urban_NAV600.dbo.[Urban-Brand GmbH$Value Entry]
-where [Posting Date] <= '2015-12-31' 
+--where [Posting Date] <= '2015-12-31' 
 /*and [Entry No_] not in ('8990862',
 '9519644',
 '9519649',
